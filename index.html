@@ -1,0 +1,231 @@
+sudo tee /var/www/thinkers/index.html >/dev/null <<'HTML'
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thinkers • Hybrid News Layout</title>
+  <meta name="description" content="Thinkers-style topbar/navbar, Cinembox hero slider, Double Slider, and NewsMag tabbed picks." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a href="#main" class="vh">Skip to content</a>
+
+  <!-- Topbar -->
+  <div class="site-topbar">
+    <div class="container">
+      <div class="top-row mobile">
+        <div class="logo-word">thinkers<span>news</span></div>
+        <div class="mobile-logo" aria-hidden="true"></div>
+      </div>
+      <div class="time-row mobile"><span class="time-text">Oct 12 • 02:54 PM</span></div>
+      <div class="logo-center desktop">thinkers<span>news</span></div>
+      <div class="time-loc desktop">
+        <span class="time-text">Oct 12 • 02:54 PM</span>
+        <span class="location-text">New York, US • 31°C</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navbar (non-sticky, Thinkers style) -->
+  <nav class="main-nav">
+    <div class="container">
+      <div class="nav-mobile">
+        <div id="translateStub" class="lang-pill" aria-label="Language">EN</div>
+        <div class="head-1">New York, US • 31°C</div>
+        <button class="hamburger" aria-expanded="false" aria-controls="navMenu" aria-label="Open menu">☰</button>
+      </div>
+      <div id="navMenu" class="menu">
+        <ul class="menu-list">
+          <li><a href="#">Latest News</a></li><li><a href="#">Business</a></li><li><a href="#">Finance</a></li>
+          <li><a href="#">Health</a></li><li><a href="#">Politics</a></li><li><a href="#">Fashion</a></li>
+          <li><a href="#">Real Estate</a></li><li><a href="#">Travel</a></li><li><a href="#">Entertainment</a></li>
+          <li><a href="#">Sports</a></li><li><a href="#">Tech</a></li>
+          <li class="has-dd">
+            <button class="dd-btn" aria-expanded="false">Category ▾</button>
+            <ul class="dd">
+              <li><a href="#">Science</a></li><li><a href="#">Weather</a></li><li><a href="#">Opinion</a></li><li><a href="#">World</a></li>
+            </ul>
+          </li>
+        </ul>
+        <div class="menu-right desktop">
+          <div id="translateStub2" class="lang-pill" aria-label="Language">EN</div>
+          <button class="icon-btn" aria-label="Search">🔍</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Marquee -->
+  <div class="marquee-wrap">
+    <div class="container">
+      <div class="marquee" role="marquee" aria-label="Headlines ticker">
+        <span>This is a sample marquee — replace with live headlines. • Lorem ipsum dolor sit amet. • Nulla vitae elit libero, a pharetra augue.</span>
+      </div>
+    </div>
+  </div>
+
+  <main id="main" class="container">
+
+    <!-- THEME #375184: Cinembox (hero slider + side cards) -->
+    <section class="cinem-hero" aria-labelledby="cinemHead">
+      <div class="cinem-hero-wrap">
+        <!-- Hero slider -->
+        <div class="cinem-slider" aria-roledescription="carousel" aria-label="Featured Premiere">
+          <div class="cinem-track" id="cinemTrack">
+            <article class="cinem-slide" aria-label="Slide 1">
+              <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?q=80&w=1600&auto=format&fit=crop" alt="Cinema projector light"/>
+              <div class="cinem-overlay"></div>
+              <div class="cinem-hero-text">
+                <h2 id="cinemHead">Featured Premiere</h2>
+                <p>Spotlight article blurb: a short, punchy line that fits on two lines max.</p>
+                <div class="cinem-tags"><span>Trailers</span><span>Interviews</span><span>Reviews</span></div>
+                <a class="cinem-cta" href="#">Read now</a>
+              </div>
+            </article>
+            <article class="cinem-slide" aria-label="Slide 2">
+              <img src="https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?q=80&w=1600&auto=format&fit=crop" alt="Film reel closeup"/>
+              <div class="cinem-overlay"></div>
+              <div class="cinem-hero-text">
+                <h2>Director's Cut</h2>
+                <p>Exclusive Q&A and never-before-seen stills from the set.</p>
+                <div class="cinem-tags"><span>Exclusive</span><span>Behind the Scenes</span></div>
+                <a class="cinem-cta" href="#">Watch clip</a>
+              </div>
+            </article>
+            <article class="cinem-slide" aria-label="Slide 3">
+              <img src="https://images.unsplash.com/photo-1535016120720-40c646be5580?q=80&w=1600&auto=format&fit=crop" alt="Cinema seats"/>
+              <div class="cinem-overlay"></div>
+              <div class="cinem-hero-text">
+                <h2>Festival Picks</h2>
+                <p>Critics shortlist: the five premieres you shouldn’t miss.</p>
+                <div class="cinem-tags"><span>Picks</span><span>Festivals</span></div>
+                <a class="cinem-cta" href="#">View list</a>
+              </div>
+            </article>
+          </div>
+          <div class="cinem-controls">
+            <button class="cinem-prev" aria-label="Previous slide">‹</button>
+            <button class="cinem-next" aria-label="Next slide">›</button>
+          </div>
+          <div class="cinem-dots" id="cinemDots" role="tablist" aria-label="Choose slide"></div>
+        </div>
+
+        <!-- Side cards -->
+        <div class="cinem-side-cards">
+          <article class="cinem-card">
+            <div class="media"><img src="https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?q=80&w=1200&auto=format&fit=crop" alt="Film reel" /></div>
+            <div class="cinem-card-body"><h3>Behind the scenes: how it’s made</h3><div class="cinem-meta">5 min • News</div></div>
+          </article>
+          <article class="cinem-card">
+            <div class="media"><img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1200&auto=format&fit=crop" alt="Director chair" /></div>
+            <div class="cinem-card-body"><h3>Director Q&A highlights</h3><div class="cinem-meta">7 min • Interview</div></div>
+          </article>
+          <article class="cinem-card">
+            <div class="media"><img src="https://images.unsplash.com/photo-1535016120720-40c646be5580?q=80&w=1200&auto=format&fit=crop" alt="Cinema seats" /></div>
+            <div class="cinem-card-body"><h3>Festival picks to watch</h3><div class="cinem-meta">4 min • Picks</div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Middle: Double Slider (hero + thumbnails) -->
+    <section class="double-slider" id="ds1" aria-label="Featured stories">
+      <div class="ds-viewport">
+        <div class="ds-track">
+          <article class="ds-slide is-active">
+            <img src="https://images.unsplash.com/photo-1522199866131-8a62f3d5a8f3?q=80&w=1600&auto=format&fit=crop" alt="Studio desk with monitors">
+            <div class="ds-caption"><h3>Designing speed: a mobile-first news homepage</h3></div>
+          </article>
+          <article class="ds-slide">
+            <img src="https://images.unsplash.com/photo-1517817748490-58fcd1e49e05?q=80&w=1600&auto=format&fit=crop" alt="City at night">
+            <div class="ds-caption"><h3>Night brief: 7 stories in 3 minutes</h3></div>
+          </article>
+          <article class="ds-slide">
+            <img src="https://images.unsplash.com/photo-1517303608298-2ac3806d9a8e?q=80&w=1600&auto=format&fit=crop" alt="Newsroom">
+            <div class="ds-caption"><h3>Inside the newsroom: how we curate</h3></div>
+          </article>
+        </div>
+        <button class="ds-prev" aria-label="Previous">‹</button>
+        <button class="ds-next" aria-label="Next">›</button>
+      </div>
+
+      <div class="ds-thumbs" role="tablist" aria-label="Select story">
+        <button class="ds-thumb is-active" role="tab" aria-selected="true">
+          <img src="https://images.unsplash.com/photo-1522199866131-8a62f3d5a8f3?q=60&w=300&auto=format&fit=crop" alt=""><span>Mobile-first</span>
+        </button>
+        <button class="ds-thumb" role="tab" aria-selected="false">
+          <img src="https://images.unsplash.com/photo-1517817748490-58fcd1e49e05?q=60&w=300&auto=format&fit=crop" alt=""><span>Night brief</span>
+        </button>
+        <button class="ds-thumb" role="tab" aria-selected="false">
+          <img src="https://images.unsplash.com/photo-1517303608298-2ac3806d9a8e?q=60&w=300&auto=format&fit=crop" alt=""><span>Curate</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- THEME #427318: NewsMag (Editor’s Picks with tabs) -->
+    <section class="tm427-lead" aria-labelledby="tm427-head">
+      <div class="tm427-headrow">
+        <h2 id="tm427-head">Editor’s Picks</h2>
+        <div class="tm427-tabs" role="tablist" aria-label="Categories">
+          <button class="tab is-active" role="tab" aria-selected="true" data-cat="all">All</button>
+          <button class="tab" role="tab" aria-selected="false" data-cat="business">Business</button>
+          <button class="tab" role="tab" aria-selected="false" data-cat="tech">Tech</button>
+          <button class="tab" role="tab" aria-selected="false" data-cat="world">World</button>
+          <button class="tab" role="tab" aria-selected="false" data-cat="health">Health</button>
+        </div>
+      </div>
+
+      <div class="tm427-grid">
+        <article class="tm427-leadcard" data-cat="business">
+          <a class="media" href="#"><img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1600&auto=format&fit=crop" alt="Skyline at sunrise"/></a>
+          <div class="body">
+            <div class="eyebrow">Feature • Business</div>
+            <h3 class="title"><a href="#">Morning brief: markets to watch this week</a></h3>
+            <p class="snippet">Futures signal a cautious open as earnings season heats up and inflation cools.</p>
+            <div class="meta"><span>6 min</span><span>•</span><time datetime="2025-10-12">Oct 12</time></div>
+          </div>
+        </article>
+
+        <div class="tm427-list">
+          <article class="rowcard" data-cat="tech">
+            <a class="rc-body" href="#"><h4 class="rc-title">Chipmakers rally on fresh guidance</h4><div class="rc-meta">3 min • Tech</div></a>
+            <a class="rc-media" href="#"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800&auto=format&fit=crop" alt="Chip closeup"/></a>
+          </article>
+          <article class="rowcard" data-cat="health">
+            <a class="rc-body" href="#"><h4 class="rc-title">Vaccine trial expands to teens</h4><div class="rc-meta">4 min • Health</div></a>
+            <a class="rc-media" href="#"><img src="https://images.unsplash.com/photo-1584036561584-b03c19da874c?q=80&w=800&auto=format&fit=crop" alt="Lab vials"/></a>
+          </article>
+          <article class="rowcard" data-cat="world">
+            <a class="rc-body" href="#"><h4 class="rc-title">Ceasefire talks resume amid pressure</h4><div class="rc-meta">5 min • World</div></a>
+            <a class="rc-media" href="#"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=800&auto=format&fit=crop" alt="Diplomats at table"/></a>
+          </article>
+          <article class="rowcard" data-cat="business">
+            <a class="rc-body" href="#"><h4 class="rc-title">Retail sales surprise to the upside</h4><div class="rc-meta">2 min • Business</div></a>
+            <a class="rc-media" href="#"><img src="https://images.unsplash.com/photo-1515165562835-c3b8c1f0b4b9?q=80&w=800&auto=format&fit=crop" alt="Shopping bags"/></a>
+          </article>
+        </div>
+
+        <aside class="tm427-rail">
+          <div class="rail-card">
+            <h4 class="rail-title">Get the Brief</h4>
+            <p class="rail-text">A 3-minute daily roundup delivered to your inbox.</p>
+            <form class="rail-form" onsubmit="event.preventDefault(); alert('Subscribed (demo)')">
+              <label class="vh" for="rail-email">Email</label>
+              <input id="rail-email" type="email" placeholder="you@example.com" required/>
+              <button type="submit">Subscribe</button>
+            </form>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
+HTML
